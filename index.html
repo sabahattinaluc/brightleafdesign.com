@@ -1,21 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bright Leaf Design</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: system-ui, -apple-system, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f8f7f4; color: #2c2c2c; }
-  .container { text-align: center; padding: 2rem; }
-  h1 { font-size: 2.5rem; font-weight: 300; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
-  p { font-size: 1.1rem; color: #666; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bright Leaf Design — AI-Powered Design Agency</title>
+  <meta name="description" content="Bright Leaf Design combines agentic AI with boutique creative quality. Describe your business — we deliver a finished site in days, not months.">
+
+  <!-- Preconnect for Google Fonts -->
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,10 90,90 10,90' fill='%2322C55E'/></svg>">
 </head>
 <body>
-<div class="container">
-  <h1>Bright Leaf Design</h1>
-  <p>Coming soon.</p>
-</div>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Bright Leaf</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="work.html" class="nav-link">Work</a></li>
+        <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary nav-cta">Start your project</a>
+      <button class="nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span class="nav-toggle-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" style="background-color: var(--bg-base);">
+      <div class="container">
+        <div class="grid" style="align-items: center; gap: var(--space-12);">
+          <div style="grid-column: 1 / 8;">
+            <span class="overline reveal">AI-Powered Design Agency</span>
+            <h1 class="display reveal" style="margin-bottom: var(--space-6);">
+              <em>We build it.</em> You launch it.
+            </h1>
+            <p class="body-large reveal" style="color: var(--text-secondary); max-width: 500px; margin-bottom: var(--space-8);">
+              Bright Leaf Design combines agentic AI with boutique creative quality. Describe your business — we deliver a finished site in days, not months.
+            </p>
+            <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;" class="reveal">
+              <a href="contact.html" class="btn-cta btn-cta-primary">Start your project</a>
+              <a href="work.html" class="btn-cta btn-cta-secondary">See our work</a>
+            </div>
+          </div>
+          <div style="grid-column: 8 / 13;">
+            <img
+              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80"
+              alt="Developer working on modern website with code on screen"
+              width="900"
+              height="600"
+              loading="eager"
+              style="border-radius: 16px; box-shadow: var(--shadow-glow-green);"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof Strip -->
+    <section style="padding: var(--space-10) 0; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-8); text-align: center;">
+          <div>
+            <span class="stat-value">50+</span>
+            <p class="stat-label">Sites delivered</p>
+          </div>
+          <div style="width: 1px; height: 40px; background: var(--border-subtle);"></div>
+          <div>
+            <span class="stat-value">14</span>
+            <p class="stat-label">Days avg. delivery</p>
+          </div>
+          <div style="width: 1px; height: 40px; background: var(--border-subtle);"></div>
+          <div>
+            <span class="stat-value">100%</span>
+            <p class="stat-label">Client satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section style="background-color: var(--bg-base);">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="overline">The Process</span>
+          <h2>Three steps. One finished site.</h2>
+        </div>
+        <div class="process-grid">
+          <div class="process-card reveal">
+            <span class="step-number mono">01</span>
+            <h3 style="margin-bottom: var(--space-3);">Tell us about your business</h3>
+            <p>Share your vision, brand, and requirements. Our AI agents research your market and competition.</p>
+          </div>
+          <div class="process-card reveal">
+            <span class="step-number mono">02</span>
+            <h3 style="margin-bottom: var(--space-3);">Agents build your site</h3>
+            <p>Our multi-agent system designs, writes copy, and develops your site — no hand-holding required.</p>
+          </div>
+          <div class="process-card reveal">
+            <span class="step-number mono">03</span>
+            <h3 style="margin-bottom: var(--space-3);">Review and launch</h3>
+            <p>Two rounds of revisions included. We launch your site and provide ongoing support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Work Section -->
+    <section style="background-color: var(--bg-surface);">
+      <div class="container">
+        <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--space-10);">
+          <div class="reveal">
+            <span class="overline">Selected Work</span>
+            <h2>Recent projects</h2>
+          </div>
+          <a href="work.html" class="btn-ghost reveal">
+            View all work
+            <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" style="transition: transform 150ms ease;">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        <div class="portfolio-grid">
+          <article class="card-portfolio reveal">
+            <img
+              src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=800&q=80"
+              alt="Startup website redesign project"
+              width="800"
+              height="450"
+              loading="lazy"
+            >
+            <div class="card-portfolio-content">
+              <h4 style="margin-bottom: var(--space-3);">TechFlow Startup</h4>
+              <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+                <span class="badge badge-green">SaaS</span>
+                <span class="badge">B2B</span>
+              </div>
+            </div>
+          </article>
+          <article class="card-portfolio reveal">
+            <img
+              src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80"
+              alt="E-commerce brand redesign project"
+              width="800"
+              height="450"
+              loading="lazy"
+            >
+            <div class="card-portfolio-content">
+              <h4 style="margin-bottom: var(--space-3);">Artisanal Goods Co.</h4>
+              <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+                <span class="badge badge-green">E-Commerce</span>
+                <span class="badge">Branding</span>
+              </div>
+            </div>
+          </article>
+          <article class="card-portfolio reveal">
+            <img
+              src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=800&q=80"
+              alt="Consulting firm website project"
+              width="800"
+              height="450"
+              loading="lazy"
+            >
+            <div class="card-portfolio-content">
+              <h4 style="margin-bottom: var(--space-3);">Summit Consulting</h4>
+              <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+                <span class="badge badge-green">Professional Services</span>
+                <span class="badge">Lead Gen</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section style="background-color: var(--bg-base); position: relative; overflow: hidden;">
+      <div style="position: absolute; inset: 0; opacity: 0.1; pointer-events: none;">
+        <img
+          src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1400&q=80"
+          alt=""
+          style="width: 100%; height: 100%; object-fit: cover;"
+          loading="lazy"
+        >
+      </div>
+      <div class="container" style="position: relative;">
+        <div class="section-header center reveal" style="margin-bottom: var(--space-12);">
+          <span class="overline">Results</span>
+          <h2>The numbers speak</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8); text-align: center;">
+          <div class="reveal">
+            <span class="stat-value">14</span>
+            <p class="stat-label">Days average delivery</p>
+          </div>
+          <div class="reveal">
+            <span class="stat-value">3×</span>
+            <p class="stat-label">Faster than traditional agencies</p>
+          </div>
+          <div class="reveal">
+            <span class="stat-value">100%</span>
+            <p class="stat-label">Client satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Band -->
+    <section style="background-color: var(--bg-base);">
+      <div class="container">
+        <div class="cta-band reveal">
+          <h2>Ready to launch?</h2>
+          <p>Tell us about your project and we'll get back to you within 1 business day.</p>
+          <a href="contact.html" class="btn-cta btn-cta-primary" style="margin-top: var(--space-4);">Start your project</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">Bright Leaf</a>
+          <p>AI-powered agentic web design agency. We build it. You launch it.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="pricing.html">Starter</a></li>
+            <li><a href="pricing.html">Growth</a></li>
+            <li><a href="pricing.html">Brand</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copyright">&copy; 2026 Bright Leaf Design. All rights reserved.</span>
+        <span class="footer-copyright">hello@brightleafdesign.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Reveal Script -->
+  <script>
+    (function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        observer.observe(el);
+      });
+
+      // Mobile menu toggle
+      var toggle = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('mobile-menu');
+
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          var isOpen = menu.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', isOpen);
+          menu.setAttribute('aria-hidden', !isOpen);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

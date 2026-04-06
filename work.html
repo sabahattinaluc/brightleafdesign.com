@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Work — Bright Leaf Design</title>
+  <meta name="description" content="Every site is built from scratch by our AI agents — designed, written, and coded to match your brand.">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,10 90,90 10,90' fill='%2322C55E'/></svg>">
+</head>
+<body>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Bright Leaf</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="work.html" class="nav-link active">Work</a></li>
+        <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary nav-cta">Start your project</a>
+      <button class="nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span class="nav-toggle-icon"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <section class="hero" style="background-color: var(--bg-base);">
+      <div class="container">
+        <span class="overline reveal">Portfolio</span>
+        <h1 class="reveal">Our Work</h1>
+        <p class="body-large reveal" style="color: var(--text-secondary); max-width: 600px; margin-top: var(--space-4);">
+          Every site is built from scratch by our AI agents — designed, written, and coded to match your brand.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section style="padding-top: 0;">
+      <div class="container">
+        <div style="display: flex; gap: var(--space-4); flex-wrap: wrap; margin-bottom: var(--space-10);" class="reveal">
+          <button class="btn btn-primary filter-btn" data-filter="all">All</button>
+          <button class="btn btn-secondary filter-btn" data-filter="startups">Startups</button>
+          <button class="btn btn-secondary filter-btn" data-filter="smb">SMB</button>
+          <button class="btn btn-secondary filter-btn" data-filter="ecommerce">E-Commerce</button>
+          <button class="btn btn-secondary filter-btn" data-filter="saas">SaaS</button>
+        </div>
+
+        <div class="portfolio-grid" id="portfolio-grid">
+          <article class="card-portfolio reveal" data-category="saas">
+            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=800&q=80" alt="TechFlow SaaS platform website" width="800" height="450" loading="lazy">
+            <div class="card-portfolio-content">
+              <h4 style="margin-bottom: var(--space-3);">TechFlow</h4>
+              <p class="small" style="color: var(--text-secondary); margin-bottom: var(--space-4);">AI-powered project management for engineering teams. Complete brand identity and marketing site.</p>
+              <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+                <span class="badge badge-green">SaaS</span>
+                <span class="badge">B2B</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card-portfolio reveal" data-category="ecommerce">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80" alt="Artisanal goods e-commerce website" width="800" height="450" loading="lazy">
+            <div class="card-portfolio-content">
+              <h4 style="margin-bottom: var(--space-3);">Artisanal Goods Co.</h4>
+              <p class="small" style="color: var(--text-secondary); margin-bottom: var(--space-4);">Craft marketplace connecting local artisans with conscious consumers. Full e-commerce solution.</p>
+              <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+                <span class="badge badge-green">E-Commerce</span>
+                <span class="badge">Branding</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card-portfolio reveal" data-category="smb">
+            <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=800&q=80" alt="Consulting firm professional services website" width="800" height="450" loading="lazy">
+            <div class="card-portfolio-content">
+              <h4 style="margin-bottom: var(--space-3);">Summit Consulting</h4>
+              <p class="small" style="color: var(--text-secondary); margin-bottom: var(--space-4);">Strategic advisory for mid-market companies. Lead generation focused redesign.</p>
+              <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+                <span class="badge badge-green">Professional Services</span>
+                <span class="badge">Lead Gen</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card-portfolio reveal" data-category="startups">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="Data analytics startup dashboard" width="800" height="450" loading="lazy">
+            <div class="card-portfolio-content">
+              <h4 style="margin-bottom: var(--space-3);">Metric.ai</h4>
+              <p class="small" style="color: var(--text-secondary); margin-bottom: var(--space-4);">Real-time analytics for growth teams. Landing page and product documentation site.</p>
+              <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+                <span class="badge badge-green">Startups</span>
+                <span class="badge">Analytics</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card-portfolio reveal" data-category="saas">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Fintech SaaS platform dashboard" width="800" height="450" loading="lazy">
+            <div class="card-portfolio-content">
+              <h4 style="margin-bottom: var(--space-3);">Ledger Pro</h4>
+              <p class="small" style="color: var(--text-secondary); margin-bottom: var(--space-4);">Financial operations platform for startups. Multi-page marketing site with integrated demo requests.</p>
+              <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+                <span class="badge badge-green">SaaS</span>
+                <span class="badge">Fintech</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card-portfolio reveal" data-category="ecommerce">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" alt="Modern retail brand website" width="800" height="450" loading="lazy">
+            <div class="card-portfolio-content">
+              <h4 style="margin-bottom: var(--space-3);">Modern & Co.</h4>
+              <p class="small" style="color: var(--text-secondary); margin-bottom: var(--space-4);">Contemporary furniture brand. Clean, editorial design showcasing product photography.</p>
+              <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+                <span class="badge badge-green">E-Commerce</span>
+                <span class="badge">Retail</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background-color: var(--bg-surface);">
+      <div class="container">
+        <div class="cta-band reveal">
+          <h2>Let's build yours</h2>
+          <p>From startup landing pages to enterprise platforms, our AI agents deliver quality at speed.</p>
+          <a href="contact.html" class="btn-cta btn-cta-primary" style="margin-top: var(--space-4);">Start your project</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">Bright Leaf</a>
+          <p>AI-powered agentic web design agency. We build it. You launch it.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="pricing.html">Starter</a></li>
+            <li><a href="pricing.html">Growth</a></li>
+            <li><a href="pricing.html">Brand</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copyright">&copy; 2026 Bright Leaf Design. All rights reserved.</span>
+        <span class="footer-copyright">hello@brightleafdesign.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        observer.observe(el);
+      });
+
+      var toggle = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          var isOpen = menu.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', isOpen);
+          menu.setAttribute('aria-hidden', !isOpen);
+        });
+      }
+
+      // Filter functionality
+      var filterBtns = document.querySelectorAll('.filter-btn');
+      var cards = document.querySelectorAll('#portfolio-grid .card-portfolio');
+
+      filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var filter = this.getAttribute('data-filter');
+
+          filterBtns.forEach(function(b) {
+            b.classList.remove('btn-primary');
+            b.classList.add('btn-secondary');
+          });
+          this.classList.remove('btn-secondary');
+          this.classList.add('btn-primary');
+
+          cards.forEach(function(card) {
+            var category = card.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
