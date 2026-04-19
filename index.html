@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bright Leaf Design — Where Vision Meets Code</title>
+  <meta name="description" content="A design-forward development studio. We bridge the gap between design intent and digital reality through agentic precision.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -229,7 +230,6 @@
 
     .hero-image-card {
       aspect-ratio: 4/5;
-      background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 100%);
       border-radius: 24px;
       overflow: hidden;
       position: relative;
@@ -239,18 +239,28 @@
       transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    .hero-image-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-image-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+      z-index: 1;
+    }
+
     .hero-image-card:nth-child(2) {
       transform: translateY(2rem);
-      background: linear-gradient(135deg, var(--sage) 0%, var(--forest-light) 100%);
     }
 
     .hero-image-card:nth-child(3) {
       transform: translateY(-2rem);
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-    }
-
-    .hero-image-card:nth-child(4) {
-      background: linear-gradient(135deg, var(--charcoal) 0%, #333 100%);
     }
 
     .hero-image-card:hover {
@@ -258,11 +268,14 @@
     }
 
     .card-label {
-      color: rgba(255,255,255,0.8);
+      position: relative;
+      z-index: 2;
+      color: rgba(255,255,255,0.95);
       font-size: 0.75rem;
-      font-weight: 500;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
 
     /* Floating badge */
@@ -532,6 +545,12 @@
       background-size: cover;
       background-position: center;
       transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .work-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .work-card:hover .work-bg {
@@ -826,15 +845,19 @@
     <div class="hero-visual">
       <div class="hero-image-grid">
         <div class="hero-image-card">
+          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=750&fit=crop&q=80" alt="Design systems and color palettes">
           <span class="card-label">Design Systems</span>
         </div>
         <div class="hero-image-card">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=750&fit=crop&q=80" alt="Code and development">
           <span class="card-label">Agentic Dev</span>
         </div>
         <div class="hero-image-card">
+          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=750&fit=crop&q=80" alt="Brand identity and typography">
           <span class="card-label">Brand Identity</span>
         </div>
         <div class="hero-image-card">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=750&fit=crop&q=80" alt="Web platforms and dashboards">
           <span class="card-label">Web Platforms</span>
         </div>
       </div>
@@ -910,6 +933,35 @@
       </blockquote>
       <cite>— Our Design Philosophy</cite>
     </div>
+  </section>
+
+  <section id="about" style="padding: 6rem 4rem; background: var(--charcoal); max-width: none;">
+    <div style="max-width: 1400px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+        <div>
+          <span class="section-label" style="color: var(--sage);">Our Studio</span>
+          <h2 class="section-title display" style="color: var(--cream); margin-bottom: 1.5rem;">Crafting digital<br>experiences since Day One</h2>
+          <p style="color: var(--warm-gray); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+            We're a small team of designers and developers united by a singular belief: 
+            great design deserves great execution. Using agentic development workflows, 
+            we deliver pixel-perfect interfaces at unprecedented speed.
+          </p>
+          <p style="color: var(--warm-gray); font-size: 1.1rem; line-height: 1.8;">
+            Our mastery of 69+ design systems — from Linear's precision to Ferrari's luxury 
+            — means we can translate any design vision into reality.
+          </p>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop&q=80" alt="Team collaboration" style="border-radius: 16px; width: 100%; height: 200px; object-fit: cover;">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop&q=80" alt="Modern workspace" style="border-radius: 16px; width: 100%; height: 200px; object-fit: cover;">
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop&q=80" alt="Design process" style="border-radius: 16px; width: 100%; height: 200px; object-fit: cover;">
+          <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051?w=400&h=300&fit=crop&q=80" alt="Development workspace" style="border-radius: 16px; width: 100%; height: 200px; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 0;">
   </div>
 
   <section id="process">
@@ -976,7 +1028,7 @@
     </div>
     <div class="work-grid">
       <div class="work-card">
-        <div class="work-bg" style="background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #74A892 100%);"></div>
+        <div class="work-bg"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&q=80" alt="Data analytics dashboard"></div>
         <div class="work-content">
           <span class="work-tag">SaaS Platform</span>
           <h3>Meridian Analytics</h3>
@@ -984,7 +1036,7 @@
         </div>
       </div>
       <div class="work-card">
-        <div class="work-bg" style="background: linear-gradient(135deg, #C9A227 0%, #8B7019 50%, #6B5A15 100%);"></div>
+        <div class="work-bg"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=500&fit=crop&q=80" alt="Premium e-commerce shopping"></div>
         <div class="work-content">
           <span class="work-tag">E-Commerce</span>
           <h3>Luxe Commerce</h3>
@@ -992,7 +1044,7 @@
         </div>
       </div>
       <div class="work-card">
-        <div class="work-bg" style="background: linear-gradient(135deg, #1C1C1C 0%, #333 50%, #4A4A4A 100%);"></div>
+        <div class="work-bg"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=500&fit=crop&q=80" alt="Developer tools and code"></div>
         <div class="work-content">
           <span class="work-tag">Developer Tools</span>
           <h3>Deploy CLI</h3>
@@ -1000,7 +1052,7 @@
         </div>
       </div>
       <div class="work-card">
-        <div class="work-bg" style="background: linear-gradient(135deg, #74A892 0%, #2D6A4F 50%, #1B4332 100%);"></div>
+        <div class="work-bg"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=500&fit=crop&q=80" alt="Healthcare technology platform"></div>
         <div class="work-content">
           <span class="work-tag">Healthcare</span>
           <h3>MedSync Platform</h3>
