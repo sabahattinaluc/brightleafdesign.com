@@ -2,22 +2,102 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
     <title>Bright Leaf Design — Where Vision Meets Code</title>
-    <meta name="description" content="A design-forward development studio. We bridge the gap between design intent and digital reality through agentic precision.">
-    <meta property="og:title" content="Bright Leaf Design — Where Vision Meets Code">
-    <meta property="og:description" content="A design-forward development studio. We bridge the gap between design intent and digital reality through agentic precision.">
+    <meta name="title" content="Bright Leaf Design — Where Vision Meets Code">
+    <meta name="description" content="A design-forward development studio. We bridge the gap between design intent and digital reality through agentic precision. Design systems, React development, pixel-perfect interfaces.">
+    <meta name="keywords" content="design systems, web development, React, agentic development, UI/UX, frontend engineering, design to code">
+    <meta name="author" content="Bright Leaf Design">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sabahattinaluc.github.io/brightleafdesign.com/">
+    
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sabahattinaluc.github.io/brightleafdesign.com/">
+    <meta property="og:title" content="Bright Leaf Design — Where Vision Meets Code">
+    <meta property="og:description" content="A design-forward development studio. We bridge the gap between design intent and digital reality through agentic precision.">
+    <meta property="og:image" content="/og-image.png">
+    <meta property="og:site_name" content="Bright Leaf Design">
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bright Leaf Design">
+    <meta name="twitter:url" content="https://sabahattinaluc.github.io/brightleafdesign.com/">
+    <meta name="twitter:title" content="Bright Leaf Design — Where Vision Meets Code">
     <meta name="twitter:description" content="Design systems + agentic development. Pixel-perfect interfaces at machine speed.">
+    <meta name="twitter:image" content="/og-image.png">
+    
+    <!-- Security Headers via Meta -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://picsum.photos; connect-src 'self'; frame-ancestors 'none';">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    
+    <!-- Performance: Preconnect to external origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    
+    <!-- Self-hosted Fonts (subset for performance) -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/plusjacasans/v18/V8mDoQDjQSkFtoMM3T6r8E7mPb54C_k3HqUtEw.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/cormorantgaramond/v22/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtK.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Bright Leaf Design",
+      "description": "A design-forward development studio specializing in design systems and agentic development.",
+      "url": "https://sabahattinaluc.github.io/brightleafdesign.com/",
+      "logo": "https://sabahattinaluc.github.io/brightleafdesign.com/vite.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "hello@brightleaf.design",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://github.com/sabahattinaluc",
+        "https://linkedin.com/company/brightleafdesign"
+      ],
+      "knowsAbout": [
+        "Design Systems",
+        "React Development",
+        "Agentic AI Development",
+        "UI/UX Implementation",
+        "Web Performance Optimization"
+      ]
+    }
+    </script>
   </head>
   <body>
+    <!-- Skip to main content for accessibility -->
+    <noscript>
+      <div style="background: #2E4036; color: white; padding: 1rem; text-align: center;">
+        <p style="margin: 0;">JavaScript is required for this site to function properly. Please enable JavaScript in your browser settings.</p>
+      </div>
+    </noscript>
+    
+    <a 
+      href="#main-content" 
+      class="skip-to-content"
+      style="position: absolute; top: -40px; left: 0; background: #2E4036; color: white; padding: 8px 16px; z-index: 9999; transition: top 0.3s;"
+      onfocus="this.style.top='0'"
+      onblur="this.style.top='-40px'"
+    >
+      Skip to main content
+    </a>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

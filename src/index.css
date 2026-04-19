@@ -112,3 +112,44 @@ body {
 .font-data {
   font-family: 'IBM Plex Mono', monospace;
 }
+
+/* Skip to content link */
+.skip-to-content:focus {
+  outline: 3px solid var(--clay);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .noise-overlay::before {
+    animation: none;
+  }
+  
+  .floating-card {
+    animation: none !important;
+  }
+  
+  .animate-pulse {
+    animation: none;
+  }
+}
+
+/* Focus visible styles for accessibility */
+:focus-visible {
+  outline: 3px solid var(--clay);
+  outline-offset: 2px;
+}
+
+/* Remove default focus for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}

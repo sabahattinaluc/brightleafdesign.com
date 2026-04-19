@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useMemo } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useMediaQuery } from '@vueuse/core'
 import { 
   Layers, 
   Zap, 
@@ -20,6 +21,29 @@ import {
 
 gsap.registerPlugin(ScrollTrigger)
 
+// Check for reduced motion preference
+const prefersReducedMotion = typeof window !== 'undefined' 
+  ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
+  : false
+
+// Custom hook for GSAP with reduced motion support
+function useGsapAnimation(animateFn, deps = []) {
+  const ref = useRef(null)
+  const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
+  
+  useEffect(() => {
+    if (reducedMotion || !ref.current) return
+    
+    const ctx = gsap.context(() => {
+      animateFn()
+    }, ref)
+
+    return () => ctx.revert()
+  }, [reducedMotion, ...deps])
+  
+  return ref
+}
+
 // Preset A: "Organic Tech" Design Tokens
 const PRESET = {
   name: 'Organic Tech',
@@ -38,17 +62,59 @@ const PRESET = {
 }
 
 function App() {
+  // Performance monitoring
+  useEffect(() => {
+    // Report Web Vitals
+    if ('PerformanceObserver' in window) {
+      // Measure LCP
+      const lcpObserver = new PerformanceObserver((list) => {
+        const entries = list.getEntries()
+        const lastEntry = entries[entries.length - 1]
+        console.log('[Web Vitals] LCP:', lastEntry.startTime)
+      })
+      lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] })
+
+      // Measure CLS
+      let clsValue = 0
+      const clsObserver = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (!entry.hadRecentInput) {
+            clsValue += entry.value
+          }
+        }
+        console.log('[Web Vitals] CLS:', clsValue)
+      })
+      clsObserver.observe({ entryTypes: ['layout-shift'] })
+
+      // Measure FID/INP
+      const fidObserver = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          console.log('[Web Vitals] FID:', entry.processingStart - entry.startTime)
+        }
+      })
+      fidObserver.observe({ entryTypes: ['first-input'] })
+
+      return () => {
+        lcpObserver.disconnect()
+        clsObserver.disconnect()
+        fidObserver.disconnect()
+      }
+    }
+  }, [])
+
   return (
     <div className="relative">
       {/* Noise Overlay */}
       <div className="noise-overlay" />
       
       <Navbar />
-      <Hero />
-      <Features />
-      <Philosophy />
-      <Protocol />
-      <Pricing />
+      <main id="main-content">
+        <Hero />
+        <Features />
+        <Philosophy />
+        <Protocol />
+        <Pricing />
+      </main>
       <Footer />
     </div>
   )
@@ -158,8 +224,11 @@ function Navbar() {
 function Hero() {
   const heroRef = useRef(null)
   const contentRef = useRef(null)
+  const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
 
   useEffect(() => {
+    if (reducedMotion) return
+    
     const ctx = gsap.context(() => {
       gsap.from('.hero-animate', {
         y: 40,
@@ -172,7 +241,7 @@ function Hero() {
     }, heroRef)
 
     return () => ctx.revert()
-  }, [])
+  }, [reducedMotion])
 
   return (
     <section 

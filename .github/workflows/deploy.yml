@@ -29,10 +29,21 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Verify Build
+        run: |
+          echo "=== Build Output ==="
+          ls -la dist/
+          echo ""
+          echo "=== Bundle Sizes ==="
+          ls -lh dist/assets/*.js dist/assets/*.css 2>/dev/null || true
+          echo ""
+          echo "=== Static Files ==="
+          ls -la dist/*.html dist/*.svg dist/*.png 2>/dev/null || true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ./dist
 
   deploy:
     needs: build
