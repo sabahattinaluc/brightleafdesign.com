@@ -3,28 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Synaptic Labs — Agentic Development Agency</title>
+  <title>Bright Leaf Design — Where Vision Meets Code</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --void: #0a0a0a;
-      --void-soft: #111111;
-      --surface: #1a1a1a;
-      --border: #2a2a2a;
-      --text: #fafafa;
-      --text-muted: #888888;
-      --emerald: #10b981;
-      --emerald-glow: rgba(16, 185, 129, 0.15);
-      --cyan: #06b6d4;
-      --gradient: linear-gradient(135deg, var(--emerald), var(--cyan));
-    }
-
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    :root {
+      --cream: #FAF8F5;
+      --cream-dark: #F0EDE8;
+      --forest: #1B4332;
+      --forest-light: #2D6A4F;
+      --sage: #74A892;
+      --charcoal: #1C1C1C;
+      --warm-gray: #6B6B6B;
+      --accent: #C9A227;
+      --accent-dark: #8B7019;
     }
 
     html {
@@ -32,11 +31,18 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--void);
-      color: var(--text);
+      font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
       line-height: 1.6;
       overflow-x: hidden;
+    }
+
+    /* Typography */
+    .display {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
     }
 
     /* Navigation */
@@ -45,390 +51,491 @@
       top: 0;
       left: 0;
       right: 0;
-      z-index: 1000;
-      padding: 1.25rem 2rem;
+      z-index: 100;
+      padding: 1.5rem 4rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(10, 10, 10, 0.8);
+      background: rgba(250, 248, 245, 0.9);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s;
-    }
-
-    nav.scrolled {
-      border-bottom-color: var(--border);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
     }
 
     .logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.02em;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .logo span {
+      color: var(--forest);
     }
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 3rem;
       list-style: none;
     }
 
     .nav-links a {
-      color: var(--text-muted);
+      color: var(--warm-gray);
       text-decoration: none;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 400;
       transition: color 0.2s;
     }
 
     .nav-links a:hover {
-      color: var(--text);
+      color: var(--charcoal);
     }
 
     .nav-cta {
-      padding: 0.6rem 1.25rem;
-      background: var(--emerald);
-      color: var(--void) !important;
-      border-radius: 8px;
-      font-weight: 600 !important;
-      transition: transform 0.2s, box-shadow 0.2s !important;
+      padding: 0.75rem 1.5rem;
+      background: var(--forest);
+      color: var(--cream) !important;
+      border-radius: 100px;
+      font-weight: 500 !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .nav-cta:hover {
+      background: var(--forest-light);
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px var(--emerald-glow);
     }
 
     /* Hero */
     .hero {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 0 4rem;
+      padding-top: 6rem;
+      gap: 4rem;
       align-items: center;
-      text-align: center;
-      padding: 8rem 2rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 50% 50%, var(--emerald-glow) 0%, transparent 50%);
-      animation: pulse 8s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 0.3; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.1); }
+      max-width: 1600px;
+      margin: 0 auto;
     }
 
     .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 900px;
+      max-width: 600px;
     }
 
-    .hero-badge {
+    .hero-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-    }
-
-    .hero-badge span {
-      width: 8px;
-      height: 8px;
-      background: var(--emerald);
-      border-radius: 50%;
-      animation: blink 2s infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    .hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(3rem, 8vw, 5.5rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--forest);
       margin-bottom: 1.5rem;
     }
 
-    .hero h1 .gradient {
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .hero-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--forest);
     }
 
-    .hero p {
-      font-size: 1.25rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.7;
+    .hero h1 {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--charcoal);
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--forest);
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--warm-gray);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
     }
 
     .hero-actions {
       display: flex;
       gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
+      align-items: center;
     }
 
     .btn {
       padding: 1rem 2rem;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: 600;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 500;
       text-decoration: none;
-      transition: all 0.2s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
       border: none;
     }
 
     .btn-primary {
-      background: var(--gradient);
-      color: var(--void);
+      background: var(--charcoal);
+      color: var(--cream);
     }
 
     .btn-primary:hover {
+      background: var(--forest);
       transform: translateY(-3px);
-      box-shadow: 0 15px 40px var(--emerald-glow);
+      box-shadow: 0 20px 40px rgba(27, 67, 50, 0.2);
     }
 
     .btn-secondary {
-      background: var(--surface);
-      color: var(--text);
-      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .btn-secondary:hover {
-      background: var(--border);
+      color: var(--forest);
     }
 
-    /* Stats */
-    .stats {
+    .btn-secondary svg {
+      transition: transform 0.3s;
+    }
+
+    .btn-secondary:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* Hero Visual */
+    .hero-visual {
+      position: relative;
+      height: 600px;
       display: flex;
-      gap: 4rem;
+      align-items: center;
       justify-content: center;
-      margin-top: 6rem;
-      padding-top: 4rem;
-      border-top: 1px solid var(--border);
     }
 
-    .stat {
-      text-align: center;
+    .hero-image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 500px;
     }
 
-    .stat-value {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 3rem;
-      font-weight: 700;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .hero-image-card {
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 100%);
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .stat-label {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-top: 0.25rem;
+    .hero-image-card:nth-child(2) {
+      transform: translateY(2rem);
+      background: linear-gradient(135deg, var(--sage) 0%, var(--forest-light) 100%);
     }
 
-    /* Sections */
+    .hero-image-card:nth-child(3) {
+      transform: translateY(-2rem);
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    }
+
+    .hero-image-card:nth-child(4) {
+      background: linear-gradient(135deg, var(--charcoal) 0%, #333 100%);
+    }
+
+    .hero-image-card:hover {
+      transform: translateY(0) scale(1.02);
+    }
+
+    .card-label {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Floating badge */
+    .floating-badge {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      white-space: nowrap;
+    }
+
+    .badge-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--forest);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .badge-text {
+      font-size: 0.85rem;
+    }
+
+    .badge-text strong {
+      display: block;
+      font-weight: 600;
+    }
+
+    .badge-text span {
+      color: var(--warm-gray);
+    }
+
+    /* Section Styles */
     section {
-      padding: 8rem 2rem;
-      max-width: 1200px;
+      padding: 8rem 4rem;
+      max-width: 1600px;
       margin: 0 auto;
     }
 
+    .section-header {
+      max-width: 700px;
+      margin-bottom: 5rem;
+    }
+
     .section-label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--emerald);
+      letter-spacing: 0.2em;
+      color: var(--forest);
       margin-bottom: 1rem;
     }
 
     .section-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      line-height: 1.15;
       margin-bottom: 1.5rem;
     }
 
     .section-desc {
       font-size: 1.1rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      line-height: 1.7;
+      color: var(--warm-gray);
+      line-height: 1.8;
     }
 
     /* Services */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-      margin-top: 4rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
     }
 
     .service-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2rem;
-      transition: all 0.3s;
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--forest);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
     }
 
     .service-card:hover {
-      border-color: var(--emerald);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.08);
     }
 
-    .service-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--emerald-glow);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .service-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 400;
+      color: var(--cream-dark);
+      line-height: 1;
       margin-bottom: 1.5rem;
-      font-size: 1.5rem;
     }
 
     .service-card h3 {
-      font-family: 'Space Grotesk', sans-serif;
       font-size: 1.25rem;
       font-weight: 600;
       margin-bottom: 0.75rem;
+      color: var(--charcoal);
     }
 
     .service-card p {
-      color: var(--text-muted);
+      color: var(--warm-gray);
       font-size: 0.95rem;
-      line-height: 1.6;
+      line-height: 1.7;
+    }
+
+    /* Philosophy */
+    .philosophy {
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 10rem 4rem;
+      margin: 0;
+      max-width: none;
+    }
+
+    .philosophy-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .philosophy blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.4;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    .philosophy blockquote span {
+      color: var(--sage);
+    }
+
+    .philosophy cite {
+      color: var(--warm-gray);
+      font-style: normal;
+      font-size: 1rem;
     }
 
     /* Process */
-    .process {
-      background: var(--void-soft);
-      border-radius: 24px;
-      padding: 4rem;
-      margin: 4rem auto;
-      max-width: 1200px;
-    }
-
     .process-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-top: 4rem;
+      gap: 3rem;
+      position: relative;
     }
 
-    @media (max-width: 900px) {
-      .process-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 500px) {
-      .process-grid {
-        grid-template-columns: 1fr;
-      }
+    .process-grid::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--forest), var(--sage), var(--accent), var(--forest));
     }
 
     .process-step {
       text-align: center;
+      position: relative;
     }
 
-    .step-number {
-      width: 48px;
-      height: 48px;
-      background: var(--gradient);
+    .step-marker {
+      width: 80px;
+      height: 80px;
+      background: white;
+      border: 3px solid var(--forest);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: var(--void);
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 2rem;
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s;
+    }
+
+    .process-step:hover .step-marker {
+      background: var(--forest);
+      transform: scale(1.1);
+    }
+
+    .process-step:hover .step-marker svg {
+      stroke: var(--cream);
+    }
+
+    .step-marker svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--forest);
+      transition: stroke 0.3s;
     }
 
     .process-step h4 {
-      font-family: 'Space Grotesk', sans-serif;
       font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
 
     .process-step p {
-      color: var(--text-muted);
+      color: var(--warm-gray);
       font-size: 0.9rem;
+      line-height: 1.6;
     }
 
     /* Work */
     .work-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 4rem;
-    }
-
-    @media (max-width: 700px) {
-      .work-grid {
-        grid-template-columns: 1fr;
-      }
+      gap: 3rem;
     }
 
     .work-card {
       position: relative;
       aspect-ratio: 16/10;
-      background: var(--surface);
-      border-radius: 16px;
+      border-radius: 24px;
       overflow: hidden;
-      border: 1px solid var(--border);
-      transition: all 0.3s;
-    }
-
-    .work-card:hover {
-      border-color: var(--emerald);
-      transform: translateY(-8px);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
     }
 
     .work-card::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: var(--gradient);
-      opacity: 0.05;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+      z-index: 1;
+      transition: opacity 0.3s;
+    }
+
+    .work-card:hover::before {
+      opacity: 0.9;
+    }
+
+    .work-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .work-card:hover .work-bg {
+      transform: scale(1.05);
     }
 
     .work-content {
@@ -436,44 +543,68 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 2rem;
-      background: linear-gradient(to top, var(--void) 0%, transparent 100%);
+      padding: 2.5rem;
+      z-index: 2;
+      transform: translateY(1rem);
+      transition: transform 0.3s;
+    }
+
+    .work-card:hover .work-content {
+      transform: translateY(0);
     }
 
     .work-tag {
       display: inline-block;
-      padding: 0.25rem 0.75rem;
-      background: var(--emerald-glow);
+      padding: 0.35rem 0.85rem;
+      background: var(--forest);
+      color: var(--cream);
       border-radius: 100px;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 600;
-      color: var(--emerald);
-      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
     }
 
-    .work-content h3 {
-      font-family: 'Space Grotesk', sans-serif;
+    .work-card h3 {
       font-size: 1.5rem;
       font-weight: 600;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    .work-card p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .work-card:hover p {
+      opacity: 1;
     }
 
     /* Testimonial */
-    .testimonial {
-      background: linear-gradient(135deg, var(--surface) 0%, var(--void-soft) 100%);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 4rem;
-      text-align: center;
-      margin: 4rem auto;
-      max-width: 900px;
+    .testimonial-section {
+      background: var(--cream-dark);
+      padding: 6rem 4rem;
+      margin: 0;
+      max-width: none;
     }
 
-    .testimonial blockquote {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 500;
-      line-height: 1.5;
-      margin-bottom: 2rem;
+    .testimonial-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonial-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+      color: var(--charcoal);
     }
 
     .testimonial-author {
@@ -484,84 +615,78 @@
     }
 
     .author-avatar {
-      width: 48px;
-      height: 48px;
-      background: var(--gradient);
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--forest), var(--sage));
       border-radius: 50%;
     }
 
     .author-info strong {
       display: block;
+      font-weight: 600;
+      color: var(--charcoal);
     }
 
     .author-info span {
-      color: var(--text-muted);
+      color: var(--warm-gray);
       font-size: 0.9rem;
     }
 
     /* CTA */
-    .cta-section {
+    .cta {
+      padding: 12rem 4rem;
       text-align: center;
-      padding: 10rem 2rem;
     }
 
-    .cta-section h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
+    .cta h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
       margin-bottom: 1.5rem;
     }
 
-    .cta-section p {
-      font-size: 1.25rem;
-      color: var(--text-muted);
-      margin-bottom: 2.5rem;
+    .cta p {
+      font-size: 1.2rem;
+      color: var(--warm-gray);
       max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
     }
 
     /* Footer */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 4rem 2rem 2rem;
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 5rem 4rem 3rem;
     }
 
     .footer-content {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 3rem;
-    }
-
-    .footer-brand {
-      max-width: 300px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
     }
 
     .footer-brand .logo {
+      color: var(--cream);
+      font-size: 1.5rem;
       margin-bottom: 1rem;
       display: inline-block;
     }
 
     .footer-brand p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 4rem;
+      color: var(--warm-gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 300px;
     }
 
     .footer-col h5 {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      margin-bottom: 1rem;
-      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      color: var(--cream);
     }
 
     .footer-col ul {
@@ -569,289 +694,389 @@
     }
 
     .footer-col li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
 
     .footer-col a {
-      color: var(--text-muted);
+      color: var(--warm-gray);
       text-decoration: none;
       font-size: 0.9rem;
       transition: color 0.2s;
     }
 
     .footer-col a:hover {
-      color: var(--emerald);
+      color: var(--sage);
     }
 
     .footer-bottom {
-      max-width: 1200px;
-      margin: 3rem auto 0;
+      max-width: 1400px;
+      margin: 4rem auto 0;
       padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--text-muted);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      color: var(--warm-gray);
       font-size: 0.85rem;
     }
 
-    /* Mobile menu */
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--text);
-      font-size: 1.5rem;
-      cursor: pointer;
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 6rem 2rem;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem 2rem;
+      }
+
+      .process-grid::before {
+        display: none;
+      }
     }
 
     @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
       .nav-links {
         display: none;
       }
 
-      .mobile-menu-btn {
-        display: block;
+      section {
+        padding: 5rem 1.5rem;
       }
 
-      .stats {
-        flex-direction: column;
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
         gap: 2rem;
       }
 
-      .process {
-        padding: 2rem;
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
   <nav>
-    <div class="logo">Synaptic</div>
+    <a href="/" class="logo">Bright <span>Leaf</span> Design</a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#work">Work</a></li>
-      <li><a href="#contact" class="nav-cta">Start Project</a></li>
+      <li><a href="#contact" class="nav-cta">Start a Project</a></li>
     </ul>
-    <button class="mobile-menu-btn">☰</button>
   </nav>
 
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-badge">
-        <span></span>
-        Agentic Development Agency
-      </div>
-      <h1>
-        We Build with<br>
-        <span class="gradient">AI-Native Precision</span>
-      </h1>
-      <p>
-        We leverage agentic AI systems to translate design intent into pixel-perfect interfaces. 
-        Higher fidelity. Faster iterations. Your vision, realized at machine speed.
+      <span class="hero-eyebrow">Design & Development Studio</span>
+      <h1 class="display">Where <em>vision</em> meets code</h1>
+      <p class="hero-desc">
+        We bridge the gap between design intent and digital reality. Using agentic development 
+        workflows, we translate the most ambitious design systems into pixel-perfect, 
+        production-ready interfaces.
       </p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Start Your Project</a>
-        <a href="#process" class="btn btn-secondary">See How It Works</a>
+        <a href="#work" class="btn btn-secondary">
+          View Our Work
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
       </div>
-      <div class="stats">
-        <div class="stat">
-          <div class="stat-value">10x</div>
-          <div class="stat-label">Faster Development</div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-image-grid">
+        <div class="hero-image-card">
+          <span class="card-label">Design Systems</span>
         </div>
-        <div class="stat">
-          <div class="stat-value">69</div>
-          <div class="stat-label">Design Systems Mastered</div>
+        <div class="hero-image-card">
+          <span class="card-label">Agentic Dev</span>
         </div>
-        <div class="stat">
-          <div class="stat-value">∞</div>
-          <div class="stat-label">Revisions Included</div>
+        <div class="hero-image-card">
+          <span class="card-label">Brand Identity</span>
+        </div>
+        <div class="hero-image-card">
+          <span class="card-label">Web Platforms</span>
+        </div>
+      </div>
+      <div class="floating-badge">
+        <div class="badge-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="badge-text">
+          <strong>69 Design Systems</strong>
+          <span>Mastered & counting</span>
         </div>
       </div>
     </div>
   </section>
 
   <section id="services">
-    <span class="section-label">What We Build</span>
-    <h2 class="section-title">Agentic Development Services</h2>
-    <p class="section-desc">
-      We combine deep design expertise with cutting-edge AI tooling to deliver 
-      production-ready interfaces that match the most refined design systems.
-    </p>
+    <div class="section-header">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title display">Crafting digital experiences<br>with precision and purpose</h2>
+      <p class="section-desc">
+        From complex design systems to single-page landings, we bring the same meticulous 
+        attention to every pixel, every interaction, every line of code.
+      </p>
+    </div>
     <div class="services-grid">
       <div class="service-card">
-        <div class="service-icon">🎨</div>
+        <div class="service-number">01</div>
         <h3>Design System Implementation</h3>
-        <p>Pixel-perfect implementation of any design system. We work from Figma, 
-        Stitch DESIGN.md files, or your existing brand guidelines.</p>
+        <p>We take your Figma files, Stitch DESIGN.md specs, or brand guidelines and 
+        transform them into production-ready code that stays true to every detail.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon">⚡</div>
-        <h3>Rapid Prototyping</h3>
-        <p>High-fidelity prototypes in days, not weeks. Our agentic workflows 
-        iterate at machine speed while maintaining human-level craft.</p>
+        <div class="service-number">02</div>
+        <h3>Agentic Development</h3>
+        <p>Leveraging AI-native workflows, we accelerate delivery without sacrificing quality. 
+        Multiple agentic workers ensure consistency at scale.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon">🧠</div>
-        <h3>Full-Stack Development</h3>
-        <p>End-to-end web applications with modern frameworks. React, Next.js, 
-        Vue, Svelte — we speak your stack fluently.</p>
+        <div class="service-number">03</div>
+        <h3>Full-Stack Engineering</h3>
+        <p>React, Next.js, Vue, Svelte — we speak your stack. End-to-end applications 
+        with modern frameworks and best-in-class architecture.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon">🔄</div>
-        <h3>Design-to-Code Migration</h3>
-        <p>Legacy system modernizations that preserve your design DNA. 
-        We translate old interfaces into modern, maintainable codebases.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">📱</div>
+        <div class="service-number">04</div>
         <h3>Responsive Excellence</h3>
-        <p>Every breakpoint considered. Mobile-first, tablet-optimized, 
-        desktop-polished. Your interface adapts flawlessly across devices.</p>
+        <p>Every breakpoint considered. Fluid typography, adaptive layouts, touch-optimized 
+        interactions. Your interface excels on every device.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon">🚀</div>
+        <div class="service-number">05</div>
         <h3>Performance Engineering</h3>
-        <p>Sub-second load times, perfect Lighthouse scores. We build 
-        for Core Web Vitals from day one, not as an afterthought.</p>
+        <p>Sub-second load times aren't a goal — they're our baseline. We engineer for 
+        Core Web Vitals from day one, not as a retrofit.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">06</div>
+        <h3>Design Consultation</h3>
+        <p>Need a second pair of eyes on your design system? We audit, refine, and 
+        document design decisions that scale with your product.</p>
       </div>
     </div>
   </section>
 
-  <section id="process" class="process">
-    <div style="text-align: center;">
+  <div class="philosophy">
+    <div class="philosophy-content">
+      <blockquote class="display">
+        "The best interfaces aren't built — they're <span>cultivated</span>. 
+        Every pixel, every transition, every moment of delight, 
+        grown with intention."
+      </blockquote>
+      <cite>— Our Design Philosophy</cite>
+    </div>
+  </div>
+
+  <section id="process">
+    <div class="section-header">
       <span class="section-label">Our Process</span>
-      <h2 class="section-title">Agentic Development Workflow</h2>
-      <p class="section-desc" style="margin: 0 auto;">
-        A hybrid approach: AI agents for speed and consistency, 
-        human oversight for creativity and nuance.
+      <h2 class="section-title display">How we bring<br>ideas to life</h2>
+      <p class="section-desc">
+        A refined workflow that combines human creativity with agentic precision. 
+        Faster iterations. Higher fidelity. Exceptional results.
       </p>
     </div>
     <div class="process-grid">
       <div class="process-step">
-        <div class="step-number">1</div>
-        <h4>Design Ingestion</h4>
-        <p>We absorb your design files, design systems, or Stitch DESIGN.md specs into our agentic pipeline.</p>
+        <div class="step-marker">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </div>
+        <h4>Discovery</h4>
+        <p>We absorb your design files, understand your brand DNA, and map out the implementation strategy.</p>
       </div>
       <div class="process-step">
-        <div class="step-number">2</div>
-        <h4>Agentic Analysis</h4>
-        <p>AI agents analyze patterns, extract design tokens, and map component hierarchies.</p>
+        <div class="step-marker">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+            <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+        </div>
+        <h4>Design Translation</h4>
+        <p>Design tokens extracted, component hierarchies mapped, and a comprehensive implementation plan created.</p>
       </div>
       <div class="process-step">
-        <div class="step-number">3</div>
-        <h4>Parallel Implementation</h4>
-        <p>Multiple agentic workers build components simultaneously, integrating continuously.</p>
+        <div class="step-marker">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+            <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="8.5" cy="7" r="4"/>
+            <path d="M20 8v6M23 11h-6"/>
+          </svg>
+        </div>
+        <h4>Agentic Build</h4>
+        <p>Multiple agentic workers build components in parallel, integrating continuously for consistency.</p>
       </div>
       <div class="process-step">
-        <div class="step-number">4</div>
-        <h4>Human Refinement</h4>
-        <p>Senior engineers review, polish, and ensure every detail meets your quality bar.</p>
+        <div class="step-marker">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+            <path d="M22 4L12 14.01l-3-3"/>
+          </svg>
+        </div>
+        <h4>Refinement</h4>
+        <p>Senior engineers review, polish, and perfect every detail until it meets your exacting standards.</p>
       </div>
     </div>
   </section>
 
   <section id="work">
-    <span class="section-label">Selected Work</span>
-    <h2 class="section-title">Recent Projects</h2>
-    <p class="section-desc">
-      A glimpse into the interfaces we've brought to life with 
-      agentic precision and human craft.
-    </p>
+    <div class="section-header">
+      <span class="section-label">Selected Work</span>
+      <h2 class="section-title display">Projects that speak<br>for themselves</h2>
+      <p class="section-desc">
+        A curated selection of interfaces we've brought to life. Each one, 
+        a testament to the marriage of design vision and technical excellence.
+      </p>
+    </div>
     <div class="work-grid">
       <div class="work-card">
+        <div class="work-bg" style="background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #74A892 100%);"></div>
         <div class="work-content">
           <span class="work-tag">SaaS Platform</span>
           <h3>Meridian Analytics</h3>
+          <p>Data visualization platform with real-time dashboards and complex charting systems.</p>
         </div>
       </div>
       <div class="work-card">
+        <div class="work-bg" style="background: linear-gradient(135deg, #C9A227 0%, #8B7019 50%, #6B5A15 100%);"></div>
         <div class="work-content">
           <span class="work-tag">E-Commerce</span>
           <h3>Luxe Commerce</h3>
+          <p>Premium shopping experience with immersive product showcases and seamless checkout.</p>
         </div>
       </div>
       <div class="work-card">
+        <div class="work-bg" style="background: linear-gradient(135deg, #1C1C1C 0%, #333 50%, #4A4A4A 100%);"></div>
         <div class="work-content">
           <span class="work-tag">Developer Tools</span>
-          <h3>Deploy CLI Dashboard</h3>
+          <h3>Deploy CLI</h3>
+          <p>Command-line interface dashboard with terminal aesthetics and developer-focused UX.</p>
         </div>
       </div>
       <div class="work-card">
+        <div class="work-bg" style="background: linear-gradient(135deg, #74A892 0%, #2D6A4F 50%, #1B4332 100%);"></div>
         <div class="work-content">
           <span class="work-tag">Healthcare</span>
           <h3>MedSync Platform</h3>
+          <p>HIPAA-compliant healthcare interface with appointment scheduling and patient portals.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="testimonial">
-    <blockquote>
-      "Synaptic delivered a pixel-perfect implementation of our complex design system 
-      in half the time we expected. Their agentic approach is the future of development."
-    </blockquote>
-    <div class="testimonial-author">
-      <div class="author-avatar"></div>
-      <div class="author-info">
-        <strong>Sarah Chen</strong>
-        <span>CTO, Meridian Analytics</span>
+  <div class="testimonial-section">
+    <div class="testimonial-content">
+      <p class="testimonial-quote display">
+        "Bright Leaf Design transformed our design system into a fully functional 
+        component library in half the time we expected. Their attention to detail 
+        is unmatched."
+      </p>
+      <div class="testimonial-author">
+        <div class="author-avatar"></div>
+        <div class="author-info">
+          <strong>Sarah Chen</strong>
+          <span>VP of Product, Meridian Analytics</span>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section id="contact" class="cta-section">
-    <h2>Ready to build at<br><span class="gradient">machine speed?</span></h2>
+  <section id="contact" class="cta">
+    <span class="section-label">Ready to Begin</span>
+    <h2 class="display">Let's create something<br><em>extraordinary</em></h2>
     <p>
-      Tell us about your project. We'll show you how agentic development 
-      transforms your design vision into reality.
+      Tell us about your project. We'll show you what agentic development 
+      can do for your design vision.
     </p>
-    <a href="mailto:hello@synapticlabs.io" class="btn btn-primary">hello@synapticlabs.io</a>
+    <a href="mailto:hello@brightleaf.design" class="btn btn-primary">hello@brightleaf.design</a>
   </section>
 
   <footer>
     <div class="footer-content">
       <div class="footer-brand">
-        <div class="logo">Synaptic</div>
-        <p>Agentic development agency. We build with AI-native precision, 
-        delivering pixel-perfect interfaces at machine speed.</p>
+        <a href="/" class="logo">Bright Leaf Design</a>
+        <p>A design-forward development studio. We bridge the gap between 
+        design intent and digital reality through agentic precision.</p>
       </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h5>Services</h5>
-          <ul>
-            <li><a href="#services">Design Systems</a></li>
-            <li><a href="#services">Prototyping</a></li>
-            <li><a href="#services">Full-Stack Dev</a></li>
-            <li><a href="#services">Migrations</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Company</h5>
-          <ul>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#process">Process</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Design Systems</a></li>
+          <li><a href="#services">Agentic Dev</a></li>
+          <li><a href="#services">Full-Stack</a></li>
+          <li><a href="#services">Consultation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="https://github.com/sabahattinaluc" target="_blank">GitHub</a></li>
+          <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+        </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      © 2026 Synaptic Labs. Built with agentic precision.
+      <span>© 2026 Bright Leaf Design. Crafted with precision.</span>
+      <span>Powered by agentic development</span>
     </div>
   </footer>
 
   <script>
-    // Scroll effects
-    window.addEventListener('scroll', () => {
-      const nav = document.querySelector('nav');
-      if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    });
-
-    // Smooth scroll for anchor links
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -860,6 +1085,16 @@
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
+    });
+
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.05)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
     });
   </script>
 </body>
