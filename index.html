@@ -3,263 +3,864 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bright Leaf Design — Premium Web Design Agency</title>
-  <meta name="description" content="Bright Leaf Design combines agentic AI with boutique creative quality. Describe your business — we deliver a finished site in days, not months.">
-
+  <title>Synaptic Labs — Agentic Development Agency</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --void: #0a0a0a;
+      --void-soft: #111111;
+      --surface: #1a1a1a;
+      --border: #2a2a2a;
+      --text: #fafafa;
+      --text-muted: #888888;
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.15);
+      --cyan: #06b6d4;
+      --gradient: linear-gradient(135deg, var(--emerald), var(--cyan));
+    }
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,10 90,90 10,90' fill='%2310B981'/></svg>">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--void);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    nav.scrolled {
+      border-bottom-color: var(--border);
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      padding: 0.6rem 1.25rem;
+      background: var(--emerald);
+      color: var(--void) !important;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      transition: transform 0.2s, box-shadow 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px var(--emerald-glow);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 50%, var(--emerald-glow) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.1); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .hero-badge span {
+      width: 8px;
+      height: 8px;
+      background: var(--emerald);
+      border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 .gradient {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: var(--void);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px var(--emerald-glow);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--border);
+    }
+
+    /* Stats */
+    .stats {
+      display: flex;
+      gap: 4rem;
+      justify-content: center;
+      margin-top: 6rem;
+      padding-top: 4rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 8rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--emerald);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .service-card:hover {
+      border-color: var(--emerald);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--emerald-glow);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Process */
+    .process {
+      background: var(--void-soft);
+      border-radius: 24px;
+      padding: 4rem;
+      margin: 4rem auto;
+      max-width: 1200px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 900px) {
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .process-step {
+      text-align: center;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: var(--gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--void);
+      margin: 0 auto 1.5rem;
+    }
+
+    .process-step h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .process-step p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Work */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 700px) {
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .work-card {
+      position: relative;
+      aspect-ratio: 16/10;
+      background: var(--surface);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .work-card:hover {
+      border-color: var(--emerald);
+      transform: translateY(-8px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    .work-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient);
+      opacity: 0.05;
+    }
+
+    .work-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      background: linear-gradient(to top, var(--void) 0%, transparent 100%);
+    }
+
+    .work-tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: var(--emerald-glow);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--emerald);
+      margin-bottom: 0.75rem;
+    }
+
+    .work-content h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    /* Testimonial */
+    .testimonial {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--void-soft) 100%);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 4rem;
+      text-align: center;
+      margin: 4rem auto;
+      max-width: 900px;
+    }
+
+    .testimonial blockquote {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      background: var(--gradient);
+      border-radius: 50%;
+    }
+
+    .author-info strong {
+      display: block;
+    }
+
+    .author-info span {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 10rem 2rem;
+    }
+
+    .cta-section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-section p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+
+    .footer-brand {
+      max-width: 300px;
+    }
+
+    .footer-brand .logo {
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 4rem;
+    }
+
+    .footer-col h5 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--emerald);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Mobile menu */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .stats {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .process {
+        padding: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">Bright Leaf</a>
-      <ul class="nav-links">
-        <li><a href="#process" class="nav-link">Process</a></li>
-        <li><a href="#portfolio" class="nav-link">Work</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      <a href="#contact" class="btn btn-primary nav-cta">Start your project</a>
-      <button class="nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
-        <span class="nav-toggle-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </button>
-    </div>
+  <nav>
+    <div class="logo">Synaptic</div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact" class="nav-cta">Start Project</a></li>
+    </ul>
+    <button class="mobile-menu-btn">☰</button>
   </nav>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-    <a href="#process">Process</a>
-    <a href="#portfolio">Work</a>
-    <a href="#contact">Contact</a>
-    <a href="#contact" class="mobile-menu-cta">Start your project</a>
-  </div>
-
-  <main>
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-      <div class="container">
-        <div class="hero-content">
-          <h1 class="hero-headline">We build it.<br>You launch it.</h1>
-          <p class="hero-subhead">Bright Leaf Design combines agentic AI with boutique creative quality. Describe your business — we deliver a finished site in days, not months.</p>
-          <div class="hero-cta-group">
-            <a href="#contact" class="btn btn-primary">Start your project</a>
-            <a href="#portfolio" class="btn btn-secondary">See our work</a>
-          </div>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span></span>
+        Agentic Development Agency
+      </div>
+      <h1>
+        We Build with<br>
+        <span class="gradient">AI-Native Precision</span>
+      </h1>
+      <p>
+        We leverage agentic AI systems to translate design intent into pixel-perfect interfaces. 
+        Higher fidelity. Faster iterations. Your vision, realized at machine speed.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Start Your Project</a>
+        <a href="#process" class="btn btn-secondary">See How It Works</a>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-value">10x</div>
+          <div class="stat-label">Faster Development</div>
         </div>
-        <div class="hero-image-wrapper">
-          <img
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80"
-            alt="Premium modern office workspace with natural lighting"
-            width="600"
-            height="400"
-            loading="eager"
-            class="hero-image"
-          >
+        <div class="stat">
+          <div class="stat-value">69</div>
+          <div class="stat-label">Design Systems Mastered</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">∞</div>
+          <div class="stat-label">Revisions Included</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Stats Bar -->
-    <section class="stats-bar" aria-label="Company statistics">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat-item">
-            <span class="stat-number">50+</span>
-            <span class="stat-label">Sites delivered</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">14</span>
-            <span class="stat-label">Days avg. delivery</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">Client satisfaction</span>
-          </div>
+  <section id="services">
+    <span class="section-label">What We Build</span>
+    <h2 class="section-title">Agentic Development Services</h2>
+    <p class="section-desc">
+      We combine deep design expertise with cutting-edge AI tooling to deliver 
+      production-ready interfaces that match the most refined design systems.
+    </p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Design System Implementation</h3>
+        <p>Pixel-perfect implementation of any design system. We work from Figma, 
+        Stitch DESIGN.md files, or your existing brand guidelines.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Rapid Prototyping</h3>
+        <p>High-fidelity prototypes in days, not weeks. Our agentic workflows 
+        iterate at machine speed while maintaining human-level craft.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧠</div>
+        <h3>Full-Stack Development</h3>
+        <p>End-to-end web applications with modern frameworks. React, Next.js, 
+        Vue, Svelte — we speak your stack fluently.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔄</div>
+        <h3>Design-to-Code Migration</h3>
+        <p>Legacy system modernizations that preserve your design DNA. 
+        We translate old interfaces into modern, maintainable codebases.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Responsive Excellence</h3>
+        <p>Every breakpoint considered. Mobile-first, tablet-optimized, 
+        desktop-polished. Your interface adapts flawlessly across devices.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚀</div>
+        <h3>Performance Engineering</h3>
+        <p>Sub-second load times, perfect Lighthouse scores. We build 
+        for Core Web Vitals from day one, not as an afterthought.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="process">
+    <div style="text-align: center;">
+      <span class="section-label">Our Process</span>
+      <h2 class="section-title">Agentic Development Workflow</h2>
+      <p class="section-desc" style="margin: 0 auto;">
+        A hybrid approach: AI agents for speed and consistency, 
+        human oversight for creativity and nuance.
+      </p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <h4>Design Ingestion</h4>
+        <p>We absorb your design files, design systems, or Stitch DESIGN.md specs into our agentic pipeline.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <h4>Agentic Analysis</h4>
+        <p>AI agents analyze patterns, extract design tokens, and map component hierarchies.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <h4>Parallel Implementation</h4>
+        <p>Multiple agentic workers build components simultaneously, integrating continuously.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">4</div>
+        <h4>Human Refinement</h4>
+        <p>Senior engineers review, polish, and ensure every detail meets your quality bar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <span class="section-label">Selected Work</span>
+    <h2 class="section-title">Recent Projects</h2>
+    <p class="section-desc">
+      A glimpse into the interfaces we've brought to life with 
+      agentic precision and human craft.
+    </p>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="work-content">
+          <span class="work-tag">SaaS Platform</span>
+          <h3>Meridian Analytics</h3>
         </div>
       </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="section section-dark" id="process">
-      <div class="container">
-        <span class="section-label">The Process</span>
-        <h2 class="section-heading">Three steps. One finished site.</h2>
-        <div class="steps-grid">
-          <article class="step-card">
-            <span class="step-number">01</span>
-            <h3 class="step-title">Tell us about your business</h3>
-            <p class="step-description">Share your vision, brand, and requirements. Our AI agents research your market and competition.</p>
-          </article>
-          <article class="step-card">
-            <span class="step-number">02</span>
-            <h3 class="step-title">Agents build your site</h3>
-            <p class="step-description">Our multi-agent system designs, writes copy, and develops your site — no hand-holding required.</p>
-          </article>
-          <article class="step-card">
-            <span class="step-number">03</span>
-            <h3 class="step-title">Review and launch</h3>
-            <p class="step-description">Two rounds of revisions included. We launch your site and provide ongoing support.</p>
-          </article>
+      <div class="work-card">
+        <div class="work-content">
+          <span class="work-tag">E-Commerce</span>
+          <h3>Luxe Commerce</h3>
         </div>
       </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="section section-surface" id="portfolio">
-      <div class="container">
-        <div class="portfolio-header">
-          <div>
-            <span class="section-label">Selected Work</span>
-            <h2 class="section-heading">Recent projects</h2>
-          </div>
-        </div>
-        <div class="portfolio-grid">
-          <article class="portfolio-card">
-            <img
-              src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80"
-              alt="Brand design workspace with creative tools"
-              width="800"
-              height="600"
-              loading="lazy"
-              class="portfolio-card-image"
-            >
-            <div class="portfolio-card-body">
-              <h3 class="portfolio-card-title">TechFlow Startup</h3>
-              <span class="portfolio-card-category">SaaS — B2B</span>
-            </div>
-          </article>
-          <article class="portfolio-card">
-            <img
-              src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&q=80"
-              alt="Design tools flatlay with notebooks and laptop"
-              width="800"
-              height="600"
-              loading="lazy"
-              class="portfolio-card-image"
-            >
-            <div class="portfolio-card-body">
-              <h3 class="portfolio-card-title">Artisanal Goods Co.</h3>
-              <span class="portfolio-card-category">E-Commerce — Branding</span>
-            </div>
-          </article>
-          <article class="portfolio-card">
-            <img
-              src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=800&q=80"
-              alt="Modern office building exterior"
-              width="800"
-              height="600"
-              loading="lazy"
-              class="portfolio-card-image"
-            >
-            <div class="portfolio-card-body">
-              <h3 class="portfolio-card-title">Summit Consulting</h3>
-              <span class="portfolio-card-category">Professional Services — Lead Gen</span>
-            </div>
-          </article>
-          <article class="portfolio-card">
-            <img
-              src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80"
-              alt="Minimalist workspace with laptop and coffee"
-              width="800"
-              height="600"
-              loading="lazy"
-              class="portfolio-card-image"
-            >
-            <div class="portfolio-card-body">
-              <h3 class="portfolio-card-title">Verdant Studios</h3>
-              <span class="portfolio-card-category">Creative Agency — Portfolio</span>
-            </div>
-          </article>
-          <article class="portfolio-card">
-            <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
-              alt="Creative team collaborating around a table"
-              width="800"
-              height="600"
-              loading="lazy"
-              class="portfolio-card-image"
-            >
-            <div class="portfolio-card-body">
-              <h3 class="portfolio-card-title">Atlas Ventures</h3>
-              <span class="portfolio-card-category">VC Firm — Investor Deck</span>
-            </div>
-          </article>
-          <article class="portfolio-card">
-            <img
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
-              alt="Modern minimalist workspace interior"
-              width="800"
-              height="600"
-              loading="lazy"
-              class="portfolio-card-image"
-            >
-            <div class="portfolio-card-body">
-              <h3 class="portfolio-card-title">Meridian Architects</h3>
-              <span class="portfolio-card-category">Architecture — Portfolio</span>
-            </div>
-          </article>
+      <div class="work-card">
+        <div class="work-content">
+          <span class="work-tag">Developer Tools</span>
+          <h3>Deploy CLI Dashboard</h3>
         </div>
       </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="section section-cta" id="contact">
-      <div class="container">
-        <div class="cta-content">
-          <h2 class="cta-heading">Ready to launch?</h2>
-          <p class="cta-subhead">Tell us about your project and we'll get back to you within 1 business day.</p>
-          <a href="mailto:hello@brightleafdesign.com" class="btn btn-primary btn-large">Start your project</a>
+      <div class="work-card">
+        <div class="work-content">
+          <span class="work-tag">Healthcare</span>
+          <h3>MedSync Platform</h3>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="nav-logo">Bright Leaf</a>
-          <p class="footer-tagline">AI-powered agentic web design agency.<br>We build it. You launch it.</p>
+  <section class="testimonial">
+    <blockquote>
+      "Synaptic delivered a pixel-perfect implementation of our complex design system 
+      in half the time we expected. Their agentic approach is the future of development."
+    </blockquote>
+    <div class="testimonial-author">
+      <div class="author-avatar"></div>
+      <div class="author-info">
+        <strong>Sarah Chen</strong>
+        <span>CTO, Meridian Analytics</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="cta-section">
+    <h2>Ready to build at<br><span class="gradient">machine speed?</span></h2>
+    <p>
+      Tell us about your project. We'll show you how agentic development 
+      transforms your design vision into reality.
+    </p>
+    <a href="mailto:hello@synapticlabs.io" class="btn btn-primary">hello@synapticlabs.io</a>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo">Synaptic</div>
+        <p>Agentic development agency. We build with AI-native precision, 
+        delivering pixel-perfect interfaces at machine speed.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">Design Systems</a></li>
+            <li><a href="#services">Prototyping</a></li>
+            <li><a href="#services">Full-Stack Dev</a></li>
+            <li><a href="#services">Migrations</a></li>
+          </ul>
         </div>
-        <div class="footer-column">
-          <h4 class="footer-heading">Company</h4>
-          <ul class="footer-links">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#portfolio">Work</a></li>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="#work">Work</a></li>
             <li><a href="#process">Process</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
-        <div class="footer-column">
-          <h4 class="footer-heading">Services</h4>
-          <ul class="footer-links">
-            <li><a href="#contact">Starter</a></li>
-            <li><a href="#contact">Growth</a></li>
-            <li><a href="#contact">Brand</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h4 class="footer-heading">Legal</h4>
-          <ul class="footer-links">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="footer-copyright">&copy; 2026 Bright Leaf Design. All rights reserved.</span>
-        <span class="footer-contact">hello@brightleafdesign.com</span>
       </div>
     </div>
+    <div class="footer-bottom">
+      © 2026 Synaptic Labs. Built with agentic precision.
+    </div>
   </footer>
+
+  <script>
+    // Scroll effects
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
