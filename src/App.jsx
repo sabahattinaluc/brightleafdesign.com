@@ -86,7 +86,9 @@ function Navbar() {
           >
             <Layers3 className="w-4 h-4 text-white" />
           </div>
-          <span className={`font-bold text-lg ${scrolled ? 'text-[#1A1A1A]' : 'text-[#1A1A1A]'}`}>
+          <span className={`font-bold text-lg transition-colors duration-500 ${
+            scrolled ? 'text-[#1A1A1A]' : 'text-white'
+          }`}>
             Bright Leaf
           </span>
         </a>
@@ -96,7 +98,9 @@ function Navbar() {
             <a 
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="text-sm font-medium text-[#1A1A1A]/70 hover:text-[#1A1A1A] transition-colors lift-link"
+              className={`text-sm font-medium transition-colors duration-500 lift-link ${
+                scrolled ? 'text-[#1A1A1A]/70 hover:text-[#1A1A1A]' : 'text-white/80 hover:text-white'
+              }`}
             >
               {item}
             </a>
@@ -106,7 +110,7 @@ function Navbar() {
         <a 
           href="#contact"
           className="hidden md:flex items-center gap-2 px-5 py-2.5 text-white rounded-full font-semibold text-sm magnetic-btn"
-          style={{ background: PRESET.palette.clay }}
+          style={{ background: scrolled ? PRESET.palette.moss : PRESET.palette.clay }}
         >
           <span className="btn-bg" style={{ background: PRESET.palette.moss }} />
           <span className="relative z-10 flex items-center gap-2">
@@ -116,8 +120,9 @@ function Navbar() {
         </a>
 
         <button 
-          className="md:hidden p-2"
+          className="md:hidden p-2 text-white"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -566,6 +571,11 @@ function Protocol() {
   const sectionRef = useRef(null)
 
   useEffect(() => {
+    // Only enable sticky effect on desktop (md = 768px+)
+    const isDesktop = window.innerWidth >= 768
+    
+    if (!isDesktop) return
+
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray('.protocol-card')
       
@@ -641,10 +651,29 @@ function Protocol() {
 }
 
 function ProtocolCard({ step, index }) {
+  const cardRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(cardRef.current, {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: cardRef.current,
+          start: 'top 85%',
+        }
+      })
+    }, cardRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
     <div 
+      ref={cardRef}
       className="protocol-card bg-white rounded-[2rem] p-8 md:p-12 border border-[#1A1A1A]/5"
-      style={{ willChange: 'transform, filter, opacity' }}
     >
       <div className="flex flex-col md:flex-row items-start gap-8">
         {/* Visual */}
