@@ -65,7 +65,7 @@ export default defineConfig({
     react(),
     copyStaticFiles(),
   ],
-  base: './',
+  base: '/',
   build: {
     outDir: 'dist',
     emptyOutDir: true,
