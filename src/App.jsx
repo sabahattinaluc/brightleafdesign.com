@@ -979,6 +979,17 @@ function Footer() {
               ))}
             </ul>
           </div>
+
+          <div>
+            <h4 className="font-heading font-bold text-white mb-4">Legal</h4>
+            <ul className="space-y-2">
+              <li>
+                <a href="/privacy-policy.html" className="text-white/60 hover:text-white transition-colors">
+                  Privacy Policy
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Bottom */}
